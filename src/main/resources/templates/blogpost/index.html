@@ -30,13 +30,26 @@
 						</div>
 						
 						<div class="panel-footer">
+						
 							<!-- link to Update -->
+							<form th:action="@{'/blogpost/edit/{id}'(id=${blog.id})}" th:method="get" class="form-horizontal">
+								<div class="form-group">
+									<button type="submit" class="btn btn-warning btn-block">Edit Post</button>
+								</div>
+							</form>
+							
 							<!-- Link to Show -->
+							<form th:action="@{'/blogpost/{id}'(id=${blog.id})}" th:method="get" class="form-horizontal">
+								<div class="form-group">
+									<button type="submit" class="btn btn-info btn-block">Show Post</button>
+								</div>
+							</form>
+							
 							<!-- Link to Destroy -->
-							<form action="#" th:action="@{'/blogpost/{id}'(id=${blog.id})}" th:method="delete" class="form-horizontal">
+							<form th:action="@{'/blogpost/{id}'(id=${blog.id})}" th:method="delete" class="form-horizontal">
         						<div class="form-group">
             						<input type="hidden" name="_method" value="delete"/>
-       	 							<button type="submit" class="btn btn-danger btn-block" th:text="Delete">Delete</button>
+       	 							<button type="submit" class="btn btn-danger btn-block" th:text="Delete">Delete Post</button>
     							</div>
 							</form>
 						</div>

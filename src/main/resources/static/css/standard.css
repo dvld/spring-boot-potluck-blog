@@ -9,3 +9,7 @@ body {
 	padding-bottom: 10px;
 	border-radius: 5px;
 }
+
+.input-lg {
+	height: 250px;
+}

@@ -11,9 +11,9 @@
 <body>
 	<div th:replace="fragments/navbar :: navbar"></div>
 	<div class="container">
-		<h1>Create a New Blog Post</h1>
-		<form action="#" th:action="@{/blogpost/new}" th:object="${blogPost}"
-			method="post">
+		<h1>Edit a Post</h1>
+		<form action="#" th:action="@{'/blogpost/{id}'(id=${id})}" th:object="${posts}"
+			th:method="put">
 
 			<div class="form-group">
 				<input type="text" class="form-control" placeholder="Blog Title..."
@@ -26,11 +26,11 @@
 			</div>
 
 			<div class="form-group">
-				<textarea class="form-control" placeholder="Blog Entry..."
+				<textarea class="form-control input-lg" placeholder="Blog Entry..."
 					th:field="*{body}"></textarea>
 			</div>
 
-			<button class="btn btn-primary">Submit Your Post</button>
+			<button class="btn btn-primary">Submit Your Changes</button>
 		</form>
 	</div>
 
