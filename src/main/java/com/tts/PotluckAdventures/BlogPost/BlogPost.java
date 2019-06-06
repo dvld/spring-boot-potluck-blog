@@ -10,7 +10,7 @@ public class BlogPost {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private long id;
 	private String Author;
 	private String Body;
 	private String Title;
@@ -18,7 +18,7 @@ public class BlogPost {
 	// getters and setters
 	// ===================
 	
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 	

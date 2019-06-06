@@ -38,37 +38,37 @@ public class BlogPostController {
 	}
 	
 	@DeleteMapping("/blogpost/{id}")
-    public String deletePostWithId(@PathVariable Long id, BlogPost blogPost) {
+    public String deletePostWithId(@PathVariable long id, BlogPost blogPost) {
         blogPostRepository.deleteById(id);
         return "blogpost/index";
 
     }
 	
 	@GetMapping("/blogpost/{id}")
-	public String showSinglePostById(@PathVariable Long id, Model model) {
+	public String showSinglePostById(@PathVariable long id, Model model) {
 		BlogPost blog = blogPostRepository.findById(id).orElse(null);
 		model.addAttribute("posts", blog);
 		return "blogpost/show";
 	}
 	
 	@GetMapping("/blogpost/edit/{id}")
-	public String getpostToEdit(@PathVariable Long id, Model model) {
+	public String getpostToEdit(@PathVariable long id, Model model) {
 		BlogPost blog = blogPostRepository.findById(id).orElse(null);
 		model.addAttribute("posts", blog);
 		return "blogpost/edit";
 	}
 	
-	@PutMapping(value="/blogpost/{id}")
-	public String updatePost(@PathVariable Long id, BlogPost blogPost, Model model)  {
+	@PutMapping("/blogpost/{id}")
+	public String updatePost(@PathVariable long id, BlogPost blogPost, Model model)  {
 		
-		BlogPost storedPostDetails = blogPostRepository.findById(id).orElse(null);
-		storedPostDetails.setAuthor(blogPost.getAuthor());
-		storedPostDetails.setTitle(blogPost.getTitle());
-		storedPostDetails.setBody(blogPost.getBody());
-		blogPostRepository.save(storedPostDetails);
-		model.addAttribute("title", storedPostDetails.getTitle());
-		model.addAttribute("author", storedPostDetails.getAuthor());
-		model.addAttribute("body", storedPostDetails.getBody());
+		BlogPost storedPost = blogPostRepository.findById(id).orElse(null);
+		storedPost.setAuthor(blogPost.getAuthor());
+		storedPost.setTitle(blogPost.getTitle());
+		storedPost.setBody(blogPost.getBody());
+		blogPostRepository.save(storedPost);
+		model.addAttribute("title", storedPost.getTitle());
+		model.addAttribute("author", storedPost.getAuthor());
+		model.addAttribute("body", storedPost.getBody());
 		
 		return "blogPost/result";
 	}
